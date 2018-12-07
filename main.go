@@ -3,16 +3,17 @@ package main
 import (
 	"net/http"
 	"github.com/julienschmidt/httprouter"
-	"webPro/utils"
-	"webPro/Handlers"
-	"webPro/defs"
+	"./utils"
+	"./Handlers"
+	"./defs"
+	"./Models"
 )
 
 
 func APIAuth(handle httprouter.Handle) httprouter.Handle {
 	return func(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
-		if utils.ValidateUser(w,r) {
+		if Models.ValidateUser(w,r) {
 			handle(w, r, ps)
 		} else {
 			utils.SendErrorResponse(w, defs.ErrorNotAuthUser)

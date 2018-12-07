@@ -4,7 +4,7 @@ import (
 	"io"
 	"encoding/json"
 	"net/http"
-	"webPro/defs"
+	"../defs"
 )
 
 func SendErrorResponse(w http.ResponseWriter, errResp defs.ErrResponse) {

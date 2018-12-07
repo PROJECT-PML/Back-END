@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"github.com/julienschmidt/httprouter"
 	"encoding/json"
-	"webPro/Models"
+	"../Models"
 	"io/ioutil"
 	"strconv"
-	"webPro/utils"
-	"webPro/defs"
+	"../utils"
+	"../defs"
 	"io"
 )
 

@@ -2,17 +2,17 @@ package Handlers
 
 import (
 	"net/http"
-	"webPro/Models"
+	"../Models"
 	"encoding/json"
 	"io/ioutil"
 	"strconv"
 	"github.com/julienschmidt/httprouter"
 	"time"
-	"webPro/defs"
-	"webPro/utils"
+	"../defs"
+	"../utils"
 )
 
-func GetAllNews(w http.ResponseWriter, req *http.Request) {
+func GetAllNews(w http.ResponseWriter, req *http.Request, p httprouter.Params) {
 	res, err := json.Marshal(Models.GetAllNews())
 	if err != nil {
 		panic(err)
@@ -22,7 +22,7 @@ func GetAllNews(w http.ResponseWriter, req *http.Request) {
 
 func CreateNew(w http.ResponseWriter, req *http.Request)  {
 	var news = Models.News{}
-	verifier := utils.GetCurrentUser(req.Header.Get("Authorization"))
+	verifier := Models.GetCurrentUser(req.Header.Get("Authorization"))
 	buff, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		panic(err)

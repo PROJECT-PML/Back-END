@@ -3,17 +3,17 @@ package Handlers
 import (
 	"net/http"
 	"io/ioutil"
-	"webPro/Models"
+	"../Models"
 	"encoding/json"
 	"strconv"
 	"github.com/julienschmidt/httprouter"
-	"webPro/utils"
+	"../utils"
 )
 
 func CreateComment(w http.ResponseWriter, req *http.Request, p httprouter.Params)  {
 
 	newsID := p.ByName("news_id")
-	author := utils.GetCurrentUser(req.Header.Get("Authorization"))
+	author := Models.GetCurrentUser(req.Header.Get("Authorization"))
 	buff, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		panic(err)
