@@ -46,7 +46,7 @@ func RootHandlers() *httprouter.Router {
 
 func main() {
 	r := RootHandlers()
-	http.ListenAndServe(":8000", r)
+	http.ListenAndServe(":8010", r)
 }
 
 
