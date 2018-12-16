@@ -6,7 +6,7 @@ import (
 "strconv"
 "time"
 
-"github.com/leiysky/go-cloud-service/utils"
+"../utils"
 )
 
 type Comment struct {

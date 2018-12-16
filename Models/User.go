@@ -15,6 +15,7 @@ type UserList struct {
 type User struct {
 	UserID    int       `json:"id, omitempty"`
 	Username  string    `json:"username"`
+	PassWord string     `json:"password"`
 	CreatedAt time.Time `json:"created_at"`
 }
 

@@ -9,12 +9,21 @@ import (
 	"strconv"
 	"../utils"
 	"../defs"
-	"io"
 )
 
 func Login(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
-	uname := p.ByName("user_name")
-	io.WriteString(w, uname)
+	var user = Models.User{}
+	buff, err := ioutil.ReadAll(r.Body)
+	if err != nil {
+		panic(err)
+	}
+	err = json.Unmarshal(buff, &user)
+	if err != nil {
+		panic(err)
+	}
+	res := Models.GenerateAuthToken(user.UserID)
+	buff, err = json.Marshal(res)
+	utils.SendNormalResponse(w,string(buff),http.StatusOK)
 }
 
 func GetAllUsers(w http.ResponseWriter, req *http.Request, p httprouter.Params)  {

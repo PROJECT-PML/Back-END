@@ -10,10 +10,10 @@ import (
 	"strconv"
 	"io"
 	"fmt"
-	"github.com/leiysky/go-cloud-service/utils"
+	"../utils"
 )
 
-var checksum = []byte("leiysky-is-a-handsome-boy")
+var secretnum = []byte("sxkgjkcd abwye")
 
 
 type AuthToken struct {
@@ -53,7 +53,7 @@ func GenerateAuthToken(userID int) AuthToken {
 	expiredTime := time.Now().UnixNano()/1e6 + 1000*60*60*3 // expired time is 3 hours
 	source := strconv.FormatInt(expiredTime, 10) + strconv.Itoa(userID)
 	io.WriteString(h, source)
-	token := fmt.Sprintf("%x", h.Sum(checksum))
+	token := fmt.Sprintf("%x", h.Sum(secretnum))
 	authToken := AuthToken{
 		// 0,
 		token,
@@ -63,8 +63,6 @@ func GenerateAuthToken(userID int) AuthToken {
 	CreateToken(authToken)
 	return authToken
 }
-
-
 
 
 func authenticateToken(token string) bool {

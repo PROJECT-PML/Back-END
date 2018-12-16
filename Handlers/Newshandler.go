@@ -20,24 +20,6 @@ func GetAllNews(w http.ResponseWriter, req *http.Request, p httprouter.Params) {
 	 utils.SendNormalResponse(w, string(res), http.StatusOK)
 }
 
-func CreateNew(w http.ResponseWriter, req *http.Request)  {
-	var news = Models.News{}
-	verifier := Models.GetCurrentUser(req.Header.Get("Authorization"))
-	buff, err := ioutil.ReadAll(req.Body)
-	if err != nil {
-		panic(err)
-	}
-	err = json.Unmarshal(buff, &news)
-	if err != nil {
-		panic(err)
-	}
-	news.Verifier = verifier.UserID
-	id := Models.CreateNews(news)
-	utils.SendNormalResponse(w,`{
-  	"id": `+strconv.Itoa(id)+`
-		}`,http.StatusOK)
-
-}
 
 func GetNewsByID(w http.ResponseWriter, req *http.Request,p httprouter.Params)  {
 	id := p.ByName("user_id")

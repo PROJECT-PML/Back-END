@@ -4,13 +4,13 @@ import (
 	"encoding/json"
 	"strconv"
 	"time"
-	"github.com/leiysky/go-cloud-service/utils"
+	"../utils"
 )
 
 type NewsList struct {
 	NewsID int    `json:"id"`
 	Author    int    `json:"author_id"`
-	Verifier int  	 `json:"verifier_id"`
+	Type int  	 `json:"type_id"`
 	Title     string `json:"title"`
 	UpdatedAt string `json:"updated_at"`
 }
@@ -18,7 +18,7 @@ type NewsList struct {
 type News struct {
 	NewsID int       `json:"id, omitempty"`
 	Author    int       `json:"author_id"`
-	Verifier int  	 `json:"verifier_id"`
+	Type int  	 `json:"type_id"`
 	Title     string    `json:"title"`
 	Content   string    `json:"content"`
 	CreatedAt time.Time `json:"created_at"`

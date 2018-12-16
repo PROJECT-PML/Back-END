@@ -29,7 +29,7 @@ func RootHandlers() *httprouter.Router {
 
 	router.POST("/register", APIAuth(Handlers.CreateUser))
 
-	router.POST("/user/:user_name", Handlers.Login)
+	router.POST("/Login", Handlers.Login)
 
 	router.GET("/users", Handlers.GetAllUsers)
 
