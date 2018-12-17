@@ -35,9 +35,9 @@ func RootHandlers() *httprouter.Router {
 
 	router.GET("/news", Handlers.GetAllNews)
 
-	router.POST("/comments/:news_id", APIAuth(Handlers.CreateComment) )
+	router.POST("/comments/news_id", APIAuth(Handlers.CreateComment) )
 
-	router.GET("/comments_get/news_id", APIAuth(Handlers.GetAllCommentsbyID))
+	router.GET("/comments/news_id", APIAuth(Handlers.GetAllCommentsbyID))
 
 	return router
 }

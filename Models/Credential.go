@@ -82,16 +82,6 @@ func GetCurrentUser(token string) *User {
 	return user
 }
 
-func AuthenticationGuard(w http.ResponseWriter, req *http.Request, next utils.NextFunc) error {
-	header := req.Header
-	token := header.Get("Authorization")
-	if authenticateToken(token) {
-		return next()
-	} else {
-		panic(utils.Exception{"Unauthorized", http.StatusUnauthorized})
-	}
-}
-
 
 func ValidateUser(w http.ResponseWriter, r *http.Request) bool {
 

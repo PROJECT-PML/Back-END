@@ -50,7 +50,7 @@ GET /news/{news_id}
  ```
 
 ### 获取新闻评论
-GET /news/news_id/comments
+GET /comments/news_id
  ```json
  {
      "status": 200,
@@ -77,7 +77,7 @@ GET /news/news_id/comments
 
 
 ### 新闻添加评论
-POST /news/{news_id}/comments/{comment_id}
+POST /comments/{news_id}
  ```json
  {
      "status": 200,
