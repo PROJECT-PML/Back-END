@@ -58,15 +58,15 @@ GET /comments/news_id
      "data": [
          {
         "Id": 1,
-         "News_id": 1
-         "Creator":2
+         "News_id": 1,
+         "Creator":2,
         "CreatedAt":"2018-12-08 22:11",
         "Content": "hhhh,233333"
          },
           {
         "Id": 1,
-         "News_id": 1
-         "Creator":1
+         "News_id": 1,
+         "Creator":1,
         "CreatedAt":"2018-12-08 22:11",
         "Content": "来试试"
          }  
@@ -85,10 +85,10 @@ POST /comments/{news_id}
      "data": 
          {
          "Id": 1,
-         "News_id": 1
-         "Creator":2
+         "News_id": 1,
+         "Creator":2,
         "CreatedAt":"2018-12-08 22:11",
-        "Content": "hhhh,233333"
+        "Content":"hhhh,233333"
          }
     
  }
@@ -152,13 +152,13 @@ request body
      "data": [
         {
         "Id": 1,
-         "News_id": 1
+         "News_id": 1,
         "CreatedAt":"2018-12-08 22:11",
         "Content": "hhhh,233333"
          },
           {
         "Id": 1,
-         "News_id": 1
+         "News_id": 1,
         "CreatedAt":"2018-12-08 22:11",
         "Content": "miaomiaomiao"
          }  
